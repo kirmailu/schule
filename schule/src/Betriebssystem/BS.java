@@ -42,6 +42,22 @@ public class BS {
 	}
 	public boolean hinzufuegen (HDD hdd){
 		
+			if (sucheleerstelle() == -1 ) {
+				
+				return false;
+				
+			} else {
+				this.hdd[sucheleerstelle()] = hdd;
+				try {
+					this.hdd[sucheleerstellehdd()] = hdd;
+					hddPartitionSetzen(this.hdd[sucheleerstellehdd()]);
+				} catch (Exception e) {
+					// TODO: handle exception
+					return false;
+	}	
+				return true;
+			}
+		}
 	}
 	public boolean entferneHDD (char p){
 		
@@ -74,8 +90,24 @@ public class BS {
 		return -1;
 	}
 
-	
-
+	private int sucheleerstellehdd(){
+		for (int i = 0; i < hdd.length; i++) {
+			if (hdd[i]==null) {
+				return i;
+			}
+		}
+	}
+	private void hddPartitionSetzen(HDD hdd ) {
+		int i = 67;
+		for (int j = 0; j < this.hdd.length; j++) {
+			if(this.hdd[j+1] == null&&this.hdd[j] != null ) {
+				this.hdd[j].setPatition((char)i);
+				break;
+		}else {
+			i++;
+		}
+	}
+}
 	public String getName() {
 		return name;
 	}
