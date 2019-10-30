@@ -10,9 +10,14 @@ public class Spieler {
 	
 	
 	public Spieler(String name, Wuerfel wuerfel[]) {
-		
+		this.name = n ;
+		this.wuerfel = wuerfel;
+				
+		}
 	}
 	public boolean wuerfeln(){
+		
+		leiterkarte.ausgabeLeiterkarte(name);
 		
 	}
 	public void zaehlenGewinn(){

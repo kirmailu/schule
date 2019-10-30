@@ -13,6 +13,12 @@ public class Leiterkarte {
 	public int ermittleErreichteStufe(){
 		
 	}
+	public void ausgabeLeiterkarte( String name) {
+		System.out.println( name + "Leiterkarte:");
+		for (int i = 6; i > 0; i--) {
+			System.out.println( i + ": " );
+		}
+	}
 	public boolean[] getLk() {
 		return lk;
 	}
