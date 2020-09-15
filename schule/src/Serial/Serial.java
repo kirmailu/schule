@@ -1,3 +1,5 @@
+package Serial;
+
 import com.fazecast.jSerialComm.SerialPort;
 import com.fazecast.jSerialComm.SerialPortInvalidPortException;
 import java.io.BufferedReader;
