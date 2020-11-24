@@ -23,6 +23,10 @@ public class MyClient {
 	public void abmelden () throws IOException{
 		clientSocket.close ();
 	}
+	public void sendCommand (String command) throws IOException{
+		System.out.println("sendcommand"+ command);
+		this.clientSocket.write(command + "\n");
+	}
 	public boolean abfragen (char x) throws IOException{
 		if (x == 'a'){
 			System.out.println("a read");

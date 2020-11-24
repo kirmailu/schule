@@ -7,15 +7,27 @@ public class MyClientUI {
 	public static void main(String[] args) {
 		MyClient mc;
 		try {
-			mc = new MyClient (2000, "10.18.16.1");
+			mc = new MyClient (4711, "10.18.16.3");
 			
 			if (mc.verbinden()==true){
 				
-				for (int i = 0; i < 10; i++) {
+				new Thread(()->{
+					while (true) {
+						try {
+							mc.sendCommand("givea");
+							Thread.sleep(100);
+						} catch (Exception e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+					}
+				}).start();
+				
+				while(true){
 					mc.abfragen('a');
 					Thread.sleep(1000);
 				}
-				mc.abfragen('b');
 			}
 			else {
 				System.out.println("Error");
